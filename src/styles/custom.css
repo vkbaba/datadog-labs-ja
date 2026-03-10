@@ -1,0 +1,48 @@
+/* ===== Noto Sans JP フォント ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root {
+  --sl-font: 'Noto Sans JP', sans-serif;
+}
+
+/* ===== Dark mode (デフォルト) ===== */
+:root {
+  --sl-color-accent-low:  #1d0f3e;
+  --sl-color-accent:      #9963d5;
+  --sl-color-accent-high: #d4b8f0;
+  /* note aside を blue→purple に */
+  --sl-color-blue-low:  #1d0f3e;
+  --sl-color-blue:      #9963d5;
+  --sl-color-blue-high: #d4b8f0;
+}
+
+/* ===== Light mode ===== */
+:root[data-theme='light'] {
+  --sl-color-accent-low:  #ede6f5;
+  --sl-color-accent:      #632CA6;
+  --sl-color-accent-high: #3d1a6b;
+  /* note aside を blue→purple に */
+  --sl-color-blue-low:  #f5f0fb;
+  --sl-color-blue:      #632CA6;
+  --sl-color-blue-high: #3d1a6b;
+  --sl-color-text: #1a1a2e;
+}
+
+/* ===== 画像に区切り線 ===== */
+.sl-markdown-content img {
+  border: 1px solid var(--sl-color-gray-5);
+  margin-top: 1rem;
+}
+
+/* ===== Aside タイトルラベルを非表示 ===== */
+.starlight-aside__title {
+  display: none;
+}
+
+.starlight-aside__title + .starlight-aside__content {
+  margin-top: 0;
+}
+
+.top-level a {
+  border-radius: 0;
+}
