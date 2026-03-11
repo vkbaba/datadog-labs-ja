@@ -92,7 +92,7 @@ Alberto の調査内容を確認しましょう。
 
     ![Checkout の Charge 呼び出しスパン](/datadog-labs-ja/assets/dd-gcp-sre-fundamentals/trace-charge-span.png)
 
-2. 下部のタブで、`paymentservice` タブの **ミートボールメニュー**（縦に3つの点）をクリックし、**-> Go to Service page** をクリックします。
+2. 下部のタブで、`paymentservice` ボタンをクリックし、**Service page->** をクリックします。
 
     ![サービスページへ移動](/datadog-labs-ja/assets/dd-gcp-sre-fundamentals/trace-span-go-to-service-page.png)
 
