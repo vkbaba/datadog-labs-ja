@@ -19,7 +19,7 @@ head: []
 
 | 章 | タイトル | 内容 |
 |----|----------|------|
-| 第1章 | [ラボ環境の確認](/datadog-labs-ja/dd-gcp-sre-fundamentals/01-introduction/) | Swagstore の動作確認と Datadog へのログイン |
-| 第2章 | [SLO の作成](/datadog-labs-ja/dd-gcp-sre-fundamentals/02-creating-an-slo/) | ログ・トレース調査から SLO・バーンレートモニター作成まで |
-| 第3章 | [環境の分析](/datadog-labs-ja/dd-gcp-sre-fundamentals/03-analyzing-the-environment/) | バーンレート分析・サービスマップ・自動修復ワークフロー構築 |
-| 第4章 | [まとめ - 自動ワークフローの確認](/datadog-labs-ja/dd-gcp-sre-fundamentals/04-automation-workflow/) | ワークフロー自動実行の確認と振り返り |
+| 1 | [ラボ環境の確認](/datadog-labs-ja/dd-gcp-sre-fundamentals/01-introduction/) | Swagstore の動作確認と Datadog へのログイン |
+| 2 | [SLO の作成](/datadog-labs-ja/dd-gcp-sre-fundamentals/02-creating-an-slo/) | ログ・トレース調査から SLO・バーンレートモニター作成まで |
+| 3 | [環境の分析](/datadog-labs-ja/dd-gcp-sre-fundamentals/03-analyzing-the-environment/) | バーンレート分析・サービスマップ・自動修復ワークフロー構築 |
+| 4 | [まとめ - 自動ワークフローの確認](/datadog-labs-ja/dd-gcp-sre-fundamentals/04-automation-workflow/) | ワークフロー自動実行の確認と振り返り |

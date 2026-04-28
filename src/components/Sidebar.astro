@@ -1,0 +1,28 @@
+---
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+
+const route = Astro.locals.starlightRoute;
+const path = Astro.url.pathname;
+const base = '/datadog-labs-ja/';
+const courseSlug = path.startsWith(base) ? path.slice(base.length).split('/')[0] : '';
+
+function entryMatchesCourse(entry, slug) {
+  if (!slug) return false;
+  if (entry.type === 'link') {
+    return entry.href === `${base}${slug}/` || entry.href.startsWith(`${base}${slug}/`);
+  }
+  if (entry.type === 'group') {
+    return entry.entries.some((e) => entryMatchesCourse(e, slug));
+  }
+  return false;
+}
+
+if (courseSlug) {
+  const filtered = route.sidebar.filter((item) => entryMatchesCourse(item, courseSlug));
+  if (filtered.length > 0) {
+    route.sidebar = filtered;
+  }
+}
+---
+
+<Default />

@@ -1,0 +1,23 @@
+---
+import Default from '@astrojs/starlight/components/Pagination.astro';
+
+const route = Astro.locals.starlightRoute;
+const path = Astro.url.pathname;
+const base = '/datadog-labs-ja/';
+const courseSlug = path.startsWith(base) ? path.slice(base.length).split('/')[0] : '';
+
+function inSameCourse(href) {
+  if (!courseSlug || !href) return false;
+  return href === `${base}${courseSlug}/` || href.startsWith(`${base}${courseSlug}/`);
+}
+
+if (courseSlug && route.pagination) {
+  const { prev, next } = route.pagination;
+  route.pagination = {
+    prev: prev && inSameCourse(prev.href) ? prev : undefined,
+    next: next && inSameCourse(next.href) ? next : undefined,
+  };
+}
+---
+
+<Default />
