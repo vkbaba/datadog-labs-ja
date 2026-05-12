@@ -10,7 +10,7 @@ head: []
 
 - LangGraph + AWS Bedrock アプリケーションへの LLM Observability の有効化
 - LLM トレースを通じたマルチエージェントワークフローの可視化（プランナー、オーケストレーター、専門エージェント、レスポンスシンセサイザー）
-- LLM-as-a-Judge およびマネージド評価（ハルシネーション検知、Prompt Injection、Failure to Answer）の設定
+- Evaluation （ハルシネーション検知、Prompt Injection、Failure to Answer）の設定
 - LLM Observability モニター（エラー、レイテンシー、コスト）の構築
 - 本番環境で発生した問題のトレースからの根本原因分析
 - LLM Experiments による複数モデルの比較とデータドリブンなモデル選定
@@ -28,4 +28,4 @@ head: []
 
 - LLM Observability が有効化された Datadog アカウント
 - AWS Bedrock モデルへのアクセス権を持つ AWS アカウント（Experiments で使用する Anthropic 各種モデルを含む）
-- OpenAI API キー（マネージド評価、特にハルシネーション検知に必要）
+- OpenAI API キー

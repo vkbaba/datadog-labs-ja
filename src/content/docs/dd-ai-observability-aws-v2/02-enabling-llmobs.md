@@ -8,7 +8,7 @@ head: []
 
 このラボの目的:
 
-1. 品質とセキュリティのマネージド評価を有効化する
+1. 品質とセキュリティの評価を有効化する
 2. ドメイン固有の品質チェック向けにカスタム LLM-as-a-Judge 評価を設定する
 3. LLM Observability モニターを確認し、コストモニターを作成する
 4. 評価結果を確認して SwagBot のパフォーマンスを評価する
@@ -93,7 +93,7 @@ LLM Observability の Overview は、アプリケーションのパフォーマ�
 
 ## 品質およびセキュリティ評価の有効化
 
-Datadog には、複数のマネージド品質・セキュリティ評価が用意されています。評価は [AI Observability - Evaluations](https://app.datadoghq.com/llm/evaluations) タブで設定します。
+Datadog には、複数の品質・セキュリティ評価テンプレートが用意されています。評価は [AI Observability - Evaluations](https://app.datadoghq.com/llm/evaluations) タブで設定します。
 
 ### 利用可能な評価を確認する
 
@@ -134,12 +134,12 @@ Datadog には、複数のマネージド品質・セキュリティ評価が用
 
 ### 評価を設定する
 
-評価機能を有効化して、SwagBot の品質とセキュリティを評価します。LLM-as-a-Judge 評価と Datadog マネージド評価を組み合わせて使用します。
+評価機能を有効化して、SwagBot の品質とセキュリティを評価します。
 
 - 品質評価には **Failure to Answer**（SwagBot が回答できていないケースの検出）
 - セキュリティには **Prompt Injection**（悪意ある入力の検出）
 
-このあと、Datadog マネージドの **Hallucination 検知** 評価も有効化します。
+このあと **Hallucination 検知** 評価も有効化します。
 
 1. [LLM Observability の **Evaluations** タブ](https://app.datadoghq.com/llm/evaluations) に戻ります。
 
@@ -155,9 +155,9 @@ Datadog には、複数のマネージド品質・セキュリティ評価が用
 
     ![Select Model](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-evaluation-model.png)
 
-6. **Evaluation Scope** で `swagbot` アプリケーションを選択し、サンプルレートはデフォルトのままにします。
+6. **Scope** で `swagbot` アプリケーションを選択し、サンプルレートはデフォルトのままにします。Span Filters がグレーアウトされている場合、セレクトボックスをクリックしてswagbot を再度選択し直します。
 
-7. **Span Filters** を展開します。**Evaluate on** で **Traces** を選択して（ルートスパンのみが対象になります）、**Span Names** に `swagbot_workflow` を追加します。
+7. **Span Filters** を展開します。**Evaluate on** で **Span** を選択して、**Filter** に `@name:swagbot_workflow` を追加します。これで、評価の対象がルートスパンのみになります。
 
     ![Span Filters](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-evaluation-span-filters.png)
 
@@ -179,7 +179,7 @@ Datadog には、複数のマネージド品質・セキュリティ評価が用
 
 16. `swagbot` アプリケーションを選択し、デフォルトのサンプリングレートを使用します。
 
-17. **Span Filters** を展開します。**Evaluate on** で **Traces** を選択し、**Span Names** に `swagbot_workflow` を追加します。
+17. **Span Filters** を展開します。**Evaluate on** で **Span** を選択して、**Filter** に `@name:swagbot_workflow` を追加します。これで、評価の対象がルートスパンのみになります。
 
 18. デフォルトのプロンプト、対応する Structured Output、評価基準を自由に確認します。
 
@@ -193,29 +193,29 @@ Datadog には、複数のマネージド品質・セキュリティ評価が用
     評価の有効化はとてもシンプルです。時間があれば、利用可能な他の評価も有効化して、LLM Observability でトレースされるリクエストへの影響を確認してみてください。
     :::
 
-### マネージド評価で Hallucination 検知を有効化する
+### Hallucination 検知を有効化する
 
-次に、Hallucination 検知のマネージド評価を有効化します。マネージド評価は Datadog によって管理されており、LLM-as-a-Judge 評価のようにカスタマイズすることはできません。本ラボ作成時点では、Hallucination 検知でサポートされているプロバイダーは OpenAI のみです。
+次に、Hallucination 検知を有効化します。Hallucination 検知では、LLM スパンにコンテキストとユーザークエリのアノテーションが必要です。本ワークショップではアノテーション済みなので、追加作業は不要ですが、必要に応じてアプリケーションコードを確認してください。
 
 1. **+ Create Evaluation** をクリックします。
 
-2. **Managed Evaluations** で `Hallucination` をクリックします。
+2. `Hallucination` をクリックします。
 
-3. LLM プロバイダー API キーのアカウントとして `swagbot` を選択します。
+3. デフォルト名 `hallucination` から、`hallucination-lab` など任意の名前に変更します。
 
-4. **Instrument your application** に書かれている指示を確認します。Hallucination 検知では、LLM スパンにコンテキストとユーザークエリのアノテーションが必要です。本ワークショップではアノテーション済みなので、追加作業は不要です。
+4. 同じモデルと API キーを選択し、その他はデフォルト設定のままにします。
 
-5. デフォルト設定（**Unsupported Claim** が有効）のままにします。
+5. `swagbot` アプリケーションを選択し、デフォルトのサンプリングレートを使用します。
 
-6. **Evaluation scope** で `swagbot` アプリケーションを選択します。
+6. **Span Filters** を展開します。**Evaluate on** で **Span** を選択して、**Filter** に `@meta.span.kind:llm` `agent:product_specialist` を追加します。これで、ハルシネーション評価の対象が、Product Specialist エージェントの商品詳細検索のLLM 問い合わせに限定されます。
 
-7. **Span Filters** を展開し、LLM スパン名として `bedrock-runtime.command` を選択します（Hallucination 検知は LLM スパンに対してのみ実行できます）。
+    ![Hallucination Settings](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-evaluation.png)
+
+7. 評価の際にLLM に問い合わせをするUser Prompt のQUESTION の `{{meta.input.prompt.variables.query}}` を `{{meta.input.prompt.variables.user_request}}` に変更します。
+
+    ![Hallucination User Prompt](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-evaluation-prompt.png)
 
 8. **Save and Publish** をクリックします。
-
-9. 評価設定が以下のような状態になります:
-
-    ![Configured Managed Evaluations](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-evaluation.png)
 
 ### 独自の LLM-as-a-Judge 評価を作成する
 
@@ -235,7 +235,7 @@ SwagBot は EC プラットフォームのチャットボットなので、商�
 
 3. OpenAI **swagbot** アカウントを選択し、**GPT-4o Mini** を選択します。
 
-4. **Evaluation Scope** で評価対象アプリケーションとして **swagbot** を選択します。
+4. **Scope** で評価対象アプリケーションとして **swagbot** を選択します。Span Filters がグレーアウトされている場合、セレクトボックスをクリックしてswagbot を再度選択し直します。
 
 5. **Span Filters** を展開します。**Evaluate on** で **Traces** を選択し、**Span Names** に `swagbot_workflow` を追加します。
 
@@ -451,7 +451,7 @@ SwagBot は EC プラットフォームのチャットボットなので、商�
 このラボで達成したこと:
 
 - **能動的なモニタリングのセットアップ**: ユーザーが不満を訴える前に問題を検知するため、エラー率・レイテンシー・コストのモニターを作成
-- **品質評価の構成**: failure to answer と prompt injection のマネージド評価を設定
+- **品質評価の構成**: failure to answer と prompt injection の評価を設定
 - **カスタム評価の確立**: ドメイン固有の品質基準を持つ LLM-as-a-Judge をビルド
 
 **SwagBot は本番運用に対応しました!** 信頼性、安全性、高品質な応答を保証するための包括的なモニタリングと継続的な品質評価が整いました。
