@@ -23,7 +23,6 @@ head: []
 | 2 | [品質とセキュリティのモニタリング基盤の構築](/datadog-labs-ja/dd-ai-observability-aws-v2/02-enabling-llmobs/) | マネージド評価、カスタム LLM-as-a-Judge、コストモニターの設定 |
 | 3 | [エージェント AI のモニタリングとトラブルシューティング](/datadog-labs-ja/dd-ai-observability-aws-v2/03-monitoring/) | エラー・データ品質・レイテンシー問題の根本原因分析と修正 |
 | 4 | [エージェント AI アプリケーションの最適化](/datadog-labs-ja/dd-ai-observability-aws-v2/04-optimizing/) | LLM Experiments を使ったモデル比較とコスト・性能最適化 |
-| 5 | [クイズ](/datadog-labs-ja/dd-ai-observability-aws-v2/05-quiz/) | 学習内容の最終アセスメントと Credly バッジ取得 |
 
 ## 前提条件
 

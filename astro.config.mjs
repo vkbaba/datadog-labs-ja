@@ -58,7 +58,6 @@ export default defineConfig({
             { label: '第2章: 品質とセキュリティのモニタリング基盤', link: '/dd-ai-observability-aws-v2/02-enabling-llmobs/' },
             { label: '第3章: モニタリングとトラブルシューティング', link: '/dd-ai-observability-aws-v2/03-monitoring/' },
             { label: '第4章: アプリケーションの最適化', link: '/dd-ai-observability-aws-v2/04-optimizing/' },
-            { label: '第5章: クイズ', link: '/dd-ai-observability-aws-v2/05-quiz/' },
           ],
         },
       ],
