@@ -10,7 +10,7 @@ head: []
 
 - LangGraph + AWS Bedrock アプリケーションへの LLM Observability の有効化
 - LLM トレースを通じたマルチエージェントワークフローの可視化（プランナー、オーケストレーター、専門エージェント、レスポンスシンセサイザー）
-- Evaluation （ハルシネーション検知、Prompt Injection、Failure to Answer）の設定
+- Evaluation （Prompt Injection、Failure to Answer）の設定
 - LLM Observability モニター（エラー、レイテンシー、コスト）の構築
 - 本番環境で発生した問題のトレースからの根本原因分析
 - LLM Experiments による複数モデルの比較とデータドリブンなモデル選定

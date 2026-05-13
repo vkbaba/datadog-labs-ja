@@ -139,8 +139,6 @@ Datadog には、複数の品質・セキュリティ評価テンプレートが
 - 品質評価には **Failure to Answer**（SwagBot が回答できていないケースの検出）
 - セキュリティには **Prompt Injection**（悪意ある入力の検出）
 
-このあと **Hallucination 検知** 評価も有効化します。
-
 1. [LLM Observability の **Evaluations** タブ](https://app.datadoghq.com/llm/evaluations) に戻ります。
 
 2. **+ Create Evaluation** をクリックします。
@@ -192,30 +190,6 @@ Datadog には、複数の品質・セキュリティ評価テンプレートが
     :::note
     評価の有効化はとてもシンプルです。時間があれば、利用可能な他の評価も有効化して、LLM Observability でトレースされるリクエストへの影響を確認してみてください。
     :::
-
-### Hallucination 検知を有効化する
-
-次に、Hallucination 検知を有効化します。Hallucination 検知では、LLM スパンにコンテキストとユーザークエリのアノテーションが必要です。本ワークショップではアノテーション済みなので、追加作業は不要ですが、必要に応じてアプリケーションコードを確認してください。
-
-1. **+ Create Evaluation** をクリックします。
-
-2. `Hallucination` をクリックします。
-
-3. デフォルト名 `hallucination` から、`hallucination-lab` など任意の名前に変更します。
-
-4. 同じモデルと API キーを選択し、その他はデフォルト設定のままにします。
-
-5. `swagbot` アプリケーションを選択し、デフォルトのサンプリングレートを使用します。
-
-6. **Span Filters** を展開します。**Evaluate on** で **Span** を選択して、**Filter** に `@meta.span.kind:llm` `agent:product_specialist` を追加します。これで、ハルシネーション評価の対象が、Product Specialist エージェントの商品詳細検索のLLM 問い合わせに限定されます。
-
-    ![Hallucination Settings](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-evaluation.png)
-
-7. 評価の際にLLM に問い合わせをするUser Prompt のQUESTION の `{{meta.input.prompt.variables.query}}` を `{{meta.input.prompt.variables.user_request}}` に変更します。
-
-    ![Hallucination User Prompt](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-evaluation-prompt.png)
-
-8. **Save and Publish** をクリックします。
 
 ### 独自の LLM-as-a-Judge 評価を作成する
 
@@ -430,19 +404,11 @@ SwagBot は EC プラットフォームのチャットボットなので、商�
 
     ![Example of Prompt Injection detection](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-security-promptinjection-details.png)
 
-7. **Overview** に戻り、**Hallucination 検知** など他の **Evaluations** も自由に確認します:
-
-    ![Hallucination detection](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-overview.png)
-
-8. 時間があれば、Hallucination 検知が発生したトレースを開いて、なぜハルシネーションと判定されたかを確認してみてください。下の例では、LLM スパンに赤いハルシネーションアイコンが表示され、`unsupported claim`（裏付けのない主張）の理由が示されています:
-
-    ![Hallucination detection details](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-hallucination-details.png)
-
-9. 自分で作成した EC 向け LLM-as-a-Judge 評価や、**failure to answer** 評価も確認できます。これにより SwagBot の現在のパフォーマンスをモニタリングできます:
+7. 自分で作成した EC 向け LLM-as-a-Judge 評価や、**failure to answer** 評価も確認できます。これにより SwagBot の現在のパフォーマンスをモニタリングできます:
 
     ![Failure to answer overview](/datadog-labs-ja/assets/dd-ai-observability-aws-v2/lab2-failure-to-answer-evaluation.png)
 
-10. failure to answer の件数を見ると、最適化の余地があることに気付くはずです!
+8. failure to answer の件数を見ると、最適化の余地があることに気付くはずです!
 
 ## ラボまとめ
 
