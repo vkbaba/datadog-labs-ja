@@ -41,6 +41,20 @@ export default defineConfig({
       },
       sidebar: [
         {
+          label: 'Datadog Fundamentals 認定試験対策ワークショップ',
+          items: [
+            { label: 'コース概要', link: '/cert01-datadog-fundamentals-prep/' },
+            { label: '第1章: 学習環境の確認', link: '/cert01-datadog-fundamentals-prep/01-environment-lab/' },
+            { label: '第2章: ホスト上の Datadog Agent', link: '/cert01-datadog-fundamentals-prep/02-agent-host/' },
+            { label: '第3章: コンテナ上の Datadog Agent', link: '/cert01-datadog-fundamentals-prep/03-agent-container/' },
+            { label: '第4章: インテグレーション', link: '/cert01-datadog-fundamentals-prep/04-integrations/' },
+            { label: '第5章: アプリケーションパフォーマンスモニタリング (APM)', link: '/cert01-datadog-fundamentals-prep/05-apm/' },
+            { label: '第6章: メトリクスとモニター', link: '/cert01-datadog-fundamentals-prep/06-metrics-monitors/' },
+            { label: '第7章: ログのクエリと分析', link: '/cert01-datadog-fundamentals-prep/07-logs/' },
+            { label: '第8章: ダッシュボード', link: '/cert01-datadog-fundamentals-prep/08-dashboards/' },
+          ],
+        },
+        {
           label: 'SRE 基礎 - 基本から自動修復まで',
           items: [
             { label: 'コース概要', link: '/dd-gcp-sre-fundamentals/' },
