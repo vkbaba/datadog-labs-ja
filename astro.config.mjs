@@ -65,6 +65,16 @@ export default defineConfig({
           ],
         },
         {
+          label: '[改訂版] エージェント AI のオブザーバビリティ - AWS Bedrock + LangGraph',
+          items: [
+            { label: 'コース概要', link: '/dd-ai-observability-aws-v3/' },
+            { label: '第1章: 完全なオブザーバビリティの有効化', link: '/dd-ai-observability-aws-v3/01-introduction/' },
+            { label: '第2章: 品質とセキュリティのモニタリング基盤', link: '/dd-ai-observability-aws-v3/02-enabling-llmobs/' },
+            { label: '第3章: モニタリングとトラブルシューティング', link: '/dd-ai-observability-aws-v3/03-monitoring/' },
+            { label: '第4章: アプリケーションの最適化', link: '/dd-ai-observability-aws-v3/04-optimizing/' },
+          ],
+        },
+        {
           label: 'エージェント AI のオブザーバビリティ - AWS Bedrock + LangGraph',
           items: [
             { label: 'コース概要', link: '/dd-ai-observability-aws-v2/' },
