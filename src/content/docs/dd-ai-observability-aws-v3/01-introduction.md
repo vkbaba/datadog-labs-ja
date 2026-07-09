@@ -87,6 +87,10 @@ docker compose down && docker compose up -d
 4. [APM](https://app.datadoghq.com/apm/home?env=dev)（左メニューの積み重なった棒グラフのアイコン）に移動します。`swagbot` サービスが一覧に表示されているはずです。
 ![SwagBot サービス](/datadog-labs-ja/assets/dd-ai-observability-aws-v3/lab1-apm-swagbot.png)
 
+    :::note
+    表示に時間がかかる場合があります。その場合はAPM > Traces > Explorer から直接トレース検索画面に行き、左ペインのファセットから `POST /data` を選択してください。
+    :::
+
 5. `swagbot` サービスをクリックして、そのサービスページを開きます。
 
 6. サービスページの左サイドバーで **Traces** をクリックします。SwagBot が処理した最新のトレースが表示され、`POST /data` が送信したチャットメッセージに対応しています。

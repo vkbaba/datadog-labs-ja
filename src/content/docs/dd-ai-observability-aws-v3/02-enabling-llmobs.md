@@ -186,7 +186,7 @@ IMPORTANT: The assistant being evaluated is a Product Specialist whose sole resp
 ```
   ![Goal Completeness プロンプト](/datadog-labs-ja/assets/dd-ai-observability-aws-v3/lab2-goal-completeness-prompt.png)
 
-9. 最後に、このテストは Product Specialist の LLM スパンのみで実行したいので、左上で評価タイプに `Span` を選択します。
+9. 最後に、このテストは Product Specialist の LLM スパンのみで実行したいので、評価タイプ(Evaluate on)に`Span` を選択します。
   ![スパン単位の Goal Completeness 評価](/datadog-labs-ja/assets/dd-ai-observability-aws-v3/lab2-goal-completeness-span.png)
 
 10. **Save and Publish** をクリックします。
